@@ -1,22 +1,33 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <script>
+
+<head>
+    <meta charset="utf-8">
+    <script>
         function rajzol() {
             // rá kell állni a vászonra
             var vaszon = document.getElementById("vaszon");
             // létrehozunk egy 2d-s alakzatot a vásznon
             var alakzat1 = vaszon.getContext("2d");
             console.log("az alakzat létrejött");
-            alakzat1.strokeRect(20,30,200,100);
+            for (var i = 0; i < 30; i++) {
+                var vel = Math.round(Math.random()*255);
+                console.log(vel);
+                var szin = "rgba("+vel+","+vel+","+vel+","+vel+")";
+                console.log(szin);
+                alakzat1.fillStyle = szin;
+                // alakzat1.strokeRect(20+i*5, 30+i*5, vel, vel);
+                alakzat1.fillRect(20+i*5, 30+i*5, vel, vel);
+            }
         }
-        </script>
-    </head>
-    <body>
-        <canvas width="400" height="400" id="vaszon">
-            ez a böngésző elavult
-        </canvas>
-        <button onclick="rajzol()">Rajzol</button>
-    </body>
+    </script>
+</head>
+
+<body>
+    <canvas width="400" height="400" id="vaszon">
+        ez a böngésző elavult
+    </canvas>
+    <button onclick="rajzol()">Rajzol</button>
+</body>
+
 </html>

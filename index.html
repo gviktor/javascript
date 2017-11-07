@@ -9,28 +9,28 @@
             var vaszon = document.getElementById("vaszon");
             // létrehozunk egy 2d-s alakzatot a vásznon
             var alakzat1 = vaszon.getContext("2d");
-            console.log("az alakzat létrejött");
+            // console.log("az alakzat létrejött");
             for (var i = 0; i < 30; i++) {
-                var vel = Math.round(Math.random()*255);
-                console.log(vel);
-                var szin = "rgba("+vel+","+vel+","+vel+","+vel+")";
-                console.log(szin);
+                var vel = Math.round(Math.random() * 255);
+                // console.log(vel);
+                var szin = "rgba(" + vel + "," + vel + "," + vel + "," + vel + ")";
+                //console.log(szin);
                 alakzat1.fillStyle = szin;
                 // alakzat1.strokeRect(20+i*5, 30+i*5, vel, vel);
-                alakzat1.fillRect(20+i*5, 30+i*5, vel, vel);
+                alakzat1.fillRect(20 + i * 5, 30 + i * 5, vel, vel);
             }
         }
         function rajzol2() {
             var vaszon = document.getElementById("vaszon");
             var alakzat2 = vaszon.getContext("2d");
-            alakzat2.clearRect(0,0,400,400);
+            alakzat2.clearRect(0, 0, 400, 400);
             alakzat2.beginPath();
-            alakzat2.moveTo(100,100);
+            alakzat2.moveTo(100, 100);
 
             for (var i = 0; i < 30; i++) {
-                var velx = Math.random()*400;
-                var vely = Math.random()*400;
-                alakzat2.lineTo(velx,vely);
+                var velx = Math.random() * 400;
+                var vely = Math.random() * 400;
+                alakzat2.lineTo(velx, vely);
             }
             alakzat2.closePath();
             alakzat2.lineWidth = 5;
@@ -39,10 +39,15 @@
             alakzat2.fill();
         }
         function indit() {
-            animacio1 = setInterval("rajzol2()",200);
+            animacio1 = setInterval("rajzol2()", 200);
+            var vaszon = document.getElementById("vaszon");
+            vaszon.addEventListener("mousedown", kattintott, true);
         }
         function leallit() {
             clearInterval(animacio1);
+        }
+        function kattintott(e) {
+            console.log(e.pageX+","+e.pageY);
         }
     </script>
 </head>

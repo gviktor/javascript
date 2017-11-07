@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script>
+        function rajzol() {
+            // rá kell állni a vászonra
+            var vaszon = document.getElementById("vaszon");
+            // létrehozunk egy 2d-s alakzatot a vásznon
+            var alakzat1 = vaszon.getContext("2d");
+            console.log("az alakzat létrejött");
+            alakzat1.strokeRect(20,30,200,100);
+        }
+        </script>
+    </head>
+    <body>
+        <canvas width="400" height="400" id="vaszon">
+            ez a böngésző elavult
+        </canvas>
+        <button onclick="rajzol()">Rajzol</button>
+    </body>
+</html>

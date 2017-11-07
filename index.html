@@ -20,14 +20,40 @@
                 alakzat1.fillRect(20+i*5, 30+i*5, vel, vel);
             }
         }
+        function rajzol2() {
+            var vaszon = document.getElementById("vaszon");
+            var alakzat2 = vaszon.getContext("2d");
+            alakzat2.clearRect(0,0,400,400);
+            alakzat2.beginPath();
+            alakzat2.moveTo(100,100);
+
+            for (var i = 0; i < 30; i++) {
+                var velx = Math.random()*400;
+                var vely = Math.random()*400;
+                alakzat2.lineTo(velx,vely);
+            }
+            alakzat2.closePath();
+            alakzat2.lineWidth = 5;
+            alakzat2.fillStyle = "rgb(255,0,0)";
+            alakzat2.stroke();
+            alakzat2.fill();
+        }
+        function indit() {
+            animacio1 = setInterval("rajzol2()",200);
+        }
+        function leallit() {
+            clearInterval(animacio1);
+        }
     </script>
 </head>
 
-<body>
+<body onload="indit()">
     <canvas width="400" height="400" id="vaszon">
         ez a böngésző elavult
     </canvas>
     <button onclick="rajzol()">Rajzol</button>
+    <button onclick="rajzol2()">Rajzol2</button>
+    <button onclick="leallit()">Leállít</button>
 </body>
 
 </html>
